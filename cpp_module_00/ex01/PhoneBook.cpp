@@ -13,7 +13,7 @@ void PhoneBook::add_contact(void)
 
 	new_contact.get_new_contact(&new_contact);
 
-	std::cout << new_contact.first_name << std::endl;
+	std::cout << new_contact.get_first_name() << std::endl;
 
 }
 
