@@ -7,10 +7,14 @@
 class PhoneBook
 {
 	private:
-	contact _contacts[8];
+	Contact contacts[8];
 
 	public:
-	PhoneBook();
+				PhoneBook();
+	std::string	get_action(void);
+	void		add_contact(void);
+
 };
+
 
 #endif
