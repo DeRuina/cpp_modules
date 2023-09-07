@@ -10,7 +10,7 @@ class PhoneBook
 	contact _contacts[8];
 
 	public:
-
+	PhoneBook();
 };
 
 #endif
