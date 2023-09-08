@@ -41,8 +41,19 @@ std::string PhoneBook::get_action(void)
 		return ("INVALID");
 }
 
+void PhoneBook::display_contact(int i)
+{
+	std::cout << "First Name: " << this->contacts[i].get_first_name("normal") << std::endl;
+	std::cout << "Last Name: " << this->contacts[i].get_last_name("normal") << std::endl;
+	std::cout << "Nickname: " << this->contacts[i].get_nickname("normal") << std::endl;
+	std::cout << "Phone Number: " << this->contacts[i].get_phone_number() << std::endl;
+	std::cout << "Darkest Secret: " << this->contacts[i].get_darkest_secret() << std::endl;
+}
+
 void PhoneBook::print_columns(void)
 {
+	if (index == 0)
+		return;
 	for (int i = 0; i < this->index; i++)
 	{
 		std::cout << "|" << std::setw(10) << i;
@@ -51,9 +62,22 @@ void PhoneBook::print_columns(void)
 		std::cout << "|" << std::setw(10) << this->contacts[i].get_nickname("sub");
 		std::cout << "|" << std::endl;
 	}
-	std::cout << "Contact index";
-	std::string num;
-	std::getline(std::cin, num)
+	std::cout << "Contact index:" << std::endl;
+	int num;
+	std::cin >> num;
+	if (std::cin.fail() || num < 0 || num > 7)
+	{
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::cout << "invalid index enter SEARCH to try again" << std::endl;
+		return;
+	}
+	if (num < index)
+		display_contact(num);
+	else
+		std::cout << "invalid index enter SEARCH to try again" << std::endl;
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
+
 
 

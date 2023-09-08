@@ -17,6 +17,7 @@ class PhoneBook
 	std::string	get_action(void);
 	void		add_contact(void);
 	void		print_columns(void);
+	void		display_contact(int i);
 
 
 };
