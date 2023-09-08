@@ -19,4 +19,6 @@ fclean: clean
 
 re: fclean all
 
+debug: FLAGS += -g
+debug: re
 

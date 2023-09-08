@@ -16,13 +16,13 @@ std::string darkest_secret;
 
 public:
 
-
-	void	get_new_contact(Contact *new_contact);
-	std::string	get_first_name (void);
-	std::string	Contact::get_last_name (void);
-	std::string	Contact::get_nickname (void);
-	std::string	Contact::get_phone_number (void);
-	std::string	Contact::get_darkest_secret (void);
+	bool	check_if_valid(void);
+	void	get_new_contact(void);
+	std::string	get_first_name (std::string str);
+	std::string	get_last_name (std::string str);
+	std::string	get_nickname (std::string str);
+	std::string	get_phone_number (void);
+	std::string	get_darkest_secret (void);
 };
 
 
