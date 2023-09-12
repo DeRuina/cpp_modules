@@ -52,15 +52,21 @@ void PhoneBook::display_contact(int i)
 
 void PhoneBook::print_columns(void)
 {
+	int i = 0;
 	if (index == 0)
 		return;
-	for (int i = 0; i < this->index; i++)
+	for (i = 0; i < 8; i++)
 	{
-		std::cout << "|" << std::setw(10) << i;
-		std::cout << "|" << std::setw(10) << this->contacts[i].get_first_name("sub");
-		std::cout << "|" << std::setw(10) << this->contacts[i].get_last_name("sub");
-		std::cout << "|" << std::setw(10) << this->contacts[i].get_nickname("sub");
-		std::cout << "|" << std::endl;
+		if (!this->contacts[i].get_first_name("sub").empty())
+		{
+			std::cout << "|" << std::setw(10) << i;
+			std::cout << "|" << std::setw(10) << this->contacts[i].get_first_name("sub");
+			std::cout << "|" << std::setw(10) << this->contacts[i].get_last_name("sub");
+			std::cout << "|" << std::setw(10) << this->contacts[i].get_nickname("sub");
+			std::cout << "|" << std::endl;
+		}
+		else
+			break;
 	}
 	std::cout << "Contact index:" << std::endl;
 	int num;
@@ -72,7 +78,7 @@ void PhoneBook::print_columns(void)
 		std::cout << "invalid index enter SEARCH to try again" << std::endl;
 		return;
 	}
-	if (num < index)
+	if (num < i)
 		display_contact(num);
 	else
 		std::cout << "invalid index enter SEARCH to try again" << std::endl;
