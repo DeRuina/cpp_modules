@@ -48,6 +48,8 @@ void PhoneBook::print_columns(void)
 	std::cout << "Contact index:" << std::endl;
 	int num;
 	std::cin >> num;
+	if (std::cin.eof())
+		std::exit(0);
 	if (std::cin.fail() || num < 0 || num > 7)
 	{
 		std::cin.clear();
@@ -85,6 +87,8 @@ std::string PhoneBook::get_action(void)
 
 	std::cout << "< ";
 	std::getline(std::cin, input);
+	if (std::cin.eof())
+		std::exit(0);
 	if (input == "ADD")
 		return (add_contact(),"ADD");
 	else if (input == "SEARCH")

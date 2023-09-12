@@ -6,14 +6,24 @@ void Contact::get_new_contact(void)
 {
 	std::cout << "First Name:" << std::endl;
 	std::getline(std::cin, this->first_name);
+	if (std::cin.eof())
+		std::exit(0);
 	std::cout << "Last Name:" << std::endl;
 	std::getline(std::cin, this->last_name);
+	if (std::cin.eof())
+		std::exit(0);
 	std::cout << "Nickname:" << std::endl;
 	std::getline(std::cin, this->nickname);
+	if (std::cin.eof())
+		std::exit(0);
 	std::cout << "Phone Number:" << std::endl;
 	std::getline(std::cin, this->phone_number);
+	if (std::cin.eof())
+		std::exit(0);
 	std::cout << "Darkest Secret:" << std::endl;
 	std::getline(std::cin, this->darkest_secret);
+	if (std::cin.eof())
+		std::exit(0);
 }
 
 // Checks if the input is valid or not (empthy is not valid)
