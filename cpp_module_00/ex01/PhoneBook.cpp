@@ -1,5 +1,7 @@
 #include "PhoneBook.hpp"
 
+// Constructor
+
 PhoneBook::PhoneBook()
 {
 	std::cout << "------------------------------------\n"
@@ -8,38 +10,11 @@ PhoneBook::PhoneBook()
 	<< "EXIT - goodbye\n" << "------------------------------------\n" << std::endl;
 }
 
+// Static variable initialization
+
 int PhoneBook::index = 0;
 
-void PhoneBook::add_contact(void)
-{
-	Contact new_contact;
-
-	new_contact.get_new_contact();
-	if (!new_contact.check_if_valid())
-	{
-		std::cout << "Invalid Contact, try again" << std::endl;
-		return;
-	}
-	if (index == 8)
-		index = 0;
-	this->contacts[index++] = new_contact;
-}
-
-std::string PhoneBook::get_action(void)
-{
-	std::string input;
-
-	std::cout << "< ";
-	std::getline(std::cin, input);
-	if (input == "ADD")
-		return (add_contact(),"ADD");
-	else if (input == "SEARCH")
-			return (print_columns(),"SEARCH");
-	else if (input == "EXIT")
-			return ("EXIT");
-	else
-		return ("INVALID");
-}
+// Prints the contact chosen by the input
 
 void PhoneBook::display_contact(int i)
 {
@@ -49,6 +24,8 @@ void PhoneBook::display_contact(int i)
 	std::cout << "Phone Number: " << this->contacts[i].get_phone_number() << std::endl;
 	std::cout << "Darkest Secret: " << this->contacts[i].get_darkest_secret() << std::endl;
 }
+
+// Prints the Phonebook list and asks user for index to diplay
 
 void PhoneBook::print_columns(void)
 {
@@ -84,6 +61,37 @@ void PhoneBook::print_columns(void)
 		std::cout << "invalid index enter SEARCH to try again" << std::endl;
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
+// Adds a new contact to the phonebook
 
+void PhoneBook::add_contact(void)
+{
+	Contact new_contact;
 
+	new_contact.get_new_contact();
+	if (!new_contact.check_if_valid())
+	{
+		std::cout << "Invalid Contact, try again" << std::endl;
+		return;
+	}
+	if (index == 8)
+		index = 0;
+	this->contacts[index++] = new_contact;
+}
+// Get's the input from user and runs the command
+
+std::string PhoneBook::get_action(void)
+{
+	std::string input;
+
+	std::cout << "< ";
+	std::getline(std::cin, input);
+	if (input == "ADD")
+		return (add_contact(),"ADD");
+	else if (input == "SEARCH")
+			return (print_columns(),"SEARCH");
+	else if (input == "EXIT")
+			return ("EXIT");
+	else
+		return ("INVALID");
+}
 
