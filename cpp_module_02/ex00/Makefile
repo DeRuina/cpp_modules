@@ -1,6 +1,6 @@
 NAME = My_First_Class_in_Orthodox_Canonical_Form
 
-SRC = main.cpp 
+SRC = main.cpp Fixed.cpp
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
@@ -8,7 +8,7 @@ FLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
-$(NAME): 
+$(NAME):
 	@c++ $(FLAGS) -o $(NAME) $(SRC)
 
 clean:
