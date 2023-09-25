@@ -68,7 +68,7 @@ bool Fixed::operator==(const Fixed &equal)
 
 bool Fixed::operator!=(const Fixed &not_equal)
 {
-	return (this->x == not_equal.getRawBits());
+	return (this->x != not_equal.getRawBits());
 }
 
 bool Fixed::operator<=(const Fixed &bigger_equal)
