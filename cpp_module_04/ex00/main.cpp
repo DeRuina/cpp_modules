@@ -16,5 +16,7 @@ const WrongAnimal* k = new WrongCat();
 std::cout << k->getType() << " " << std::endl;
 k->makeSound();
 
+delete j, i, k, meta;
+
 return (0);
 }
