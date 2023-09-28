@@ -8,7 +8,7 @@ FLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
-$(NAME): 
+$(NAME): $(SRC)
 	@c++ $(FLAGS) -o $(NAME) $(SRC)
 
 clean:
