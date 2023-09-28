@@ -9,8 +9,8 @@ int main(int argc, char **argv)
 
   std::string fileName = argv[1], find = argv[2], replace = argv[3];
   std::ifstream inFile(fileName.c_str());
-  if (inFile.fail())
-    return(std::cout << "Openning input file failed" << std::endl, 1);
+  if (inFile.fail() || inFile.peek() == EOF)
+    return(std::cout << "File is directory/is empty/failed opening" << std::endl, 1);
   std::ofstream outFile((fileName + ".replace").c_str());
   if (inFile.fail())
     return(std::cout << "Openning output file failed" << std::endl, 1);
