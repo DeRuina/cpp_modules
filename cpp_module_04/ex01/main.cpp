@@ -5,23 +5,30 @@
 
 int main(void)
 {
-const Animal* meta = new Animal();
-const Animal* j = new Dog();
-const Animal* i = new Cat();
-std::cout << j->getType() << " " << std::endl;
-std::cout << i->getType() << " " << std::endl;
-i->makeSound(); 
-j->makeSound();
-meta->makeSound();
+  Animal *AnimalArray[6];
 
-const WrongAnimal* k = new WrongCat();
-std::cout << k->getType() << " " << std::endl;
-k->makeSound();
+  for (int i = 0; i < 6; i++)
+  {
+    if (i % 2 == 0)
+      AnimalArray[i] = new Dog();
+    else
+      AnimalArray[i] = new Cat();
+  }
 
-delete j;
-delete i;
-delete k;
-delete meta;
+  std::cout << "\nDeep copy test!" << std::endl;
+	Cat cat;
+	cat.getBrain().setIdea(0, "I LOVE TUNA");
+	Cat copyCat(cat);
+	copyCat.getBrain().setIdea(0, "I LOVE SARDINS");
+	Cat assignCat = cat;
+	assignCat.getBrain().setIdea(0, "I HATE FISH");
+	std::cout << "Cat 1: " << cat.getBrain().getIdea(0) << std::endl;
+	std::cout << "Cat 2: " << copyCat.getBrain().getIdea(0) << std::endl;
+	std::cout << "Cat 3: " << assignCat.getBrain().getIdea(0) << std::endl;
+	std::cout << std::endl;
 
-return (0);
+  for (int i = 0; i < 6; i++)
+    delete AnimalArray[i];
+
+  return (0);
 }

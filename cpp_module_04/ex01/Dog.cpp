@@ -1,6 +1,6 @@
 #include "Dog.hpp"
 
-Dog::Dog() : type("Dog"), brain(new Brain())
+Dog::Dog() : brain(new Brain()), type("Dog")
 {
   std::cout << "Dog constructor called" << std::endl;
 }
@@ -8,12 +8,15 @@ Dog::Dog() : type("Dog"), brain(new Brain())
 Dog::Dog(const Dog &copy) : Animal()
 {
   std::cout << "Dog copy constructor called" << std::endl;
-  *this = copy;
+  this->type = copy.type;
+   this->brain = new Brain(*copy.brain);
 }
 Dog &Dog::operator=(const Dog &src)
 {
   std::cout << "Dog copy assignment operator called" << std::endl;
   this->type = src.type;
+  delete this->brain;
+  this->brain = new Brain(*src.brain);
   return (*this);
 }
 
