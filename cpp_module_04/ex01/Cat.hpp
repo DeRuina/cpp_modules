@@ -2,20 +2,25 @@
 #define CAT_H
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Cat : public Animal 
 {
-  protected:
-      std::string type;
+    private:
+        Brain *brain;
 
-  public:
-      Cat();
-      Cat(const Cat &copy);
-      Cat &operator=(const Cat &src);
-      ~Cat();
+    protected:
+        std::string type;
 
-      void makeSound(void) const;
-      std::string getType(void) const;
+    public:
+        Cat();
+        Cat(const Cat &copy);
+        Cat &operator=(const Cat &src);
+        ~Cat();
+
+        void makeSound(void) const;
+        std::string getType(void) const;
+        Brain &getBrain(void);
 };
 
 
