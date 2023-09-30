@@ -6,10 +6,10 @@
 class Ice : public AMateria
 {
   public:
-    Ice(std::string const & type);
+    Ice();
     Ice(const Ice &copy);
     Ice &operator=(const Ice &src);
-    virtual ~Ice();
+    ~Ice();
 
     Ice* clone() const;
 	  void use(ICharacter &target);

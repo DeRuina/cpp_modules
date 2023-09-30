@@ -24,5 +24,5 @@ std::string const &AMateria::getType() const
 
 void AMateria::use(ICharacter& target)
 {
-  std::cout << "default behaviour of use" << std::endl;
+  std::cout << "default behaviour of use on" << target.getName() <<  std::endl;
 }

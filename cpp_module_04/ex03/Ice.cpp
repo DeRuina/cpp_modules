@@ -1,7 +1,7 @@
 #include "Ice.hpp"
 
-Ice::Ice(std::string const & type) : AMateria("ice")
-{
+Ice::Ice() : AMateria("ice")
+{ 
 }
 Ice::Ice(const Ice &copy) : AMateria("ice")
 {

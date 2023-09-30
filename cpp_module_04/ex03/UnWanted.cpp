@@ -18,10 +18,10 @@ UnWanted &UnWanted::operator=(const UnWanted &src)
 
 UnWanted::~UnWanted()
 {
-  delete current;
-  current = NULL;
-  delete next;
-  next = NULL;
+  delete this->current;
+  this->current = NULL;
+  delete this->next;
+  this->next = NULL;
 }
 
 UnWanted *UnWanted::getNext(void)
@@ -29,9 +29,9 @@ UnWanted *UnWanted::getNext(void)
   return (this->next);
 }
 
-void UnWanted::setNext(UnWanted *next)
+void UnWanted::setNext(UnWanted *append)
 {
-  this->next = next;
+  this->next = append;
 }
 
 AMateria	*UnWanted::getCurrent(void)

@@ -1,8 +1,9 @@
 #include "Cure.hpp"
 
-Cure::Cure(std::string const & type) : AMateria("cure")
+Cure::Cure() : AMateria("cure") 
 {
 }
+
 Cure::Cure(const Cure &copy) : AMateria("cure")
 {
   this->type = copy.getType();

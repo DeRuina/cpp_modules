@@ -13,10 +13,10 @@ class UnWanted
 		  UnWanted(AMateria *materia);
 		  UnWanted(const UnWanted &copy);
 		  UnWanted	&operator=(const UnWanted &src);
-		  virtual ~UnWanted();
+		  ~UnWanted();
 
 		  UnWanted		*getNext(void);
-		  void		setNext(UnWanted *next);
+		  void		setNext(UnWanted *append);
 		  AMateria	*getCurrent(void);
 };
 

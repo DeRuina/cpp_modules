@@ -1,6 +1,6 @@
 NAME = Interface_recap
 
-SRC = main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp UnWanted.cpp Materiasource.cpp
+SRC = main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp UnWanted.cpp MateriaSource.cpp
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 

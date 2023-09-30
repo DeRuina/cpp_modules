@@ -81,7 +81,8 @@ void Character::use(int idx, ICharacter &target)
 		std::cout << "invalid" << std::endl;
 		return;
 	}
-	inventory[idx]->use(target);
+	if (inventory[idx])
+		inventory[idx]->use(target);
 }
 
 const AMateria *Character::getItem(int idx) const

@@ -36,6 +36,7 @@ void	MateriaSource::learnMateria(AMateria *materia)
 		if (materias[i] == NULL && materia)
 		{
 			materias[i] = materia;
+      std::cout << "New materia learned"<< std::endl;
 			return;
 		}
 	}
