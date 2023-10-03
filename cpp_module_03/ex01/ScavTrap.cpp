@@ -1,7 +1,7 @@
 #include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
-{ 
+{
   std::cout << "ScavTrap constructor called" << std::endl;
   this->hit_Points = 100;
   this->energy_Points = 50;
@@ -40,7 +40,7 @@ void  ScavTrap::attack(const std::string &target)
       std::cout << this->name << " is dead" << std::endl;
       return;
     }
-  std::cout << "SlapTrap " << this->name << " attacks " << target << 
+  std::cout << "ScavTrap " << this->name << " attacks " << target <<
   ", causing " << this->attack_Damage << " points of damage!" << std::endl;
   this->energy_Points--;
 }
