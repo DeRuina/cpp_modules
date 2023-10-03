@@ -3,11 +3,8 @@
 
 #include "Animal.hpp"
 
-class Cat : public Animal 
+class Cat : public Animal
 {
-  protected:
-      std::string type;
-
   public:
       Cat();
       Cat(const Cat &copy);

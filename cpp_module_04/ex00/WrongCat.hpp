@@ -3,11 +3,8 @@
 
 #include "WrongAnimal.hpp"
 
-class WrongCat : public WrongAnimal 
+class WrongCat : public WrongAnimal
 {
-  protected:
-      std::string type;
-
   public:
       WrongCat();
       WrongCat(const WrongCat &copy);

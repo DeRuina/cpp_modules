@@ -1,8 +1,9 @@
 #include "Dog.hpp"
 
-Dog::Dog() : type("Dog")
+Dog::Dog()
 {
   std::cout << "Dog constructor called" << std::endl;
+  this->type = "Dog";
 }
 
 Dog::Dog(const Dog &copy) : Animal()
