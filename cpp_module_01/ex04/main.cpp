@@ -12,7 +12,7 @@ int main(int argc, char **argv)
   if (inFile.fail() || inFile.peek() == EOF)
     return(std::cout << "File is directory/is empty/failed opening" << std::endl, 1);
   std::ofstream outFile((fileName + ".replace").c_str());
-  if (inFile.fail())
+  if (outFile.fail())
     return(std::cout << "Openning output file failed" << std::endl, 1);
 
   size_t index;
