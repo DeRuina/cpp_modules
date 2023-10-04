@@ -34,7 +34,7 @@ int main(void)
   for (int i = 0; i < 6; i++)
     delete AnimalArray[i];
 
-
+	//Animal test;
 
   return (0);
 }

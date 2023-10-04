@@ -9,9 +9,9 @@ Dog::Dog()
 
 Dog::Dog(const Dog &copy) : Animal()
 {
-  std::cout << "Dog copy constructor called" << std::endl;
-  this->type = copy.type;
-   this->brain = new Brain(*copy.brain);
+	std::cout << "Dog copy constructor called" << std::endl;
+	this->type = copy.type;
+	this->brain = new Brain(*copy.brain);
 }
 Dog &Dog::operator=(const Dog &src)
 {

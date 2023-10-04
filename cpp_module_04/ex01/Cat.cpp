@@ -9,9 +9,9 @@ Cat::Cat()
 
 Cat::Cat(const Cat &copy) : Animal()
 {
-   std::cout << "Cat copy constructor called" << std::endl;
-   this->type = copy.type;
-   this->brain = new Brain(*copy.brain);
+	std::cout << "Cat copy constructor called" << std::endl;
+	this->type = copy.type;
+	this->brain = new Brain(*copy.brain);
 }
 Cat &Cat::operator=(const Cat &src)
 {
