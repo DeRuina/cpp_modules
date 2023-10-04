@@ -9,10 +9,10 @@ class Cure : public AMateria
     Cure();
     Cure(const Cure &copy);
     Cure &operator=(const Cure &src);
-    ~Cure();
+    virtual ~Cure();
 
     Cure* clone() const;
-	  void use(ICharacter &target);
+	void use(ICharacter &target);
 
 };
 

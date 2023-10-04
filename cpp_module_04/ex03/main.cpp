@@ -10,42 +10,42 @@ int main()
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
 
-	ICharacter* me = new Character("me");
+	ICharacter* Teemu = new Character( "Teemu");
 
 	// Equip test
 	AMateria* tmp;
 	tmp = src->createMateria("ice");
-	me->equip(tmp);
+ 	Teemu->equip(tmp);
 	tmp = src->createMateria("cure");
-	me->equip(tmp);
-	
+ 	Teemu->equip(tmp);
+
 	// Unequip test
 	tmp = src->createMateria("ice");
-	me->equip(tmp);
+ 	Teemu->equip(tmp);
 	tmp = src->createMateria("cure");
-	me->equip(tmp);
-	me->unequip(2);
-	me->unequip(3);
+ 	Teemu->equip(tmp);
+ 	Teemu->unequip(2);
+ 	Teemu->unequip(3);
 
-	// Equipment overload test
+	// Equip Teemu overload test
 	tmp = src->createMateria("ice");
-	me->equip(tmp);
+ 	Teemu->equip(tmp);
 	tmp = src->createMateria("cure");
-	me->equip(tmp);
+ 	Teemu->equip(tmp);
 	tmp = src->createMateria("ice");
-	me->equip(tmp);
+ 	Teemu->equip(tmp);
 
 	delete tmp;
 
 	// Use test
 	ICharacter* bob = new Character("bob");
-	me->use(0, *bob);
-	me->use(1, *bob);
-	me->use(2, *bob);
-	me->use(3, *bob);
+ 	Teemu->use(0, *bob);
+ 	Teemu->use(1, *bob);
+ 	Teemu->use(2, *bob);
+ 	Teemu->use(3, *bob);
 
 	delete bob;
-	delete me;
+	delete Teemu;
 	delete src;
 
 	return (0);
