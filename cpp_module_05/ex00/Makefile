@@ -1,6 +1,6 @@
 NAME = Mommy_when_I_grow_up_I_want_to_be_a_bureaucrat
 
-SRC = main.cpp 
+SRC = main.cpp Bureaucrat.cpp
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
