@@ -1,11 +1,11 @@
 #include "Bureaucrat.hpp"
 
-virtual const char* Bureaucrat::GradeTooHighException::what() const throw()
+const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
   return ("Grade too high");
 }
 
-virtual const char* Bureaucrat::GradeTooLowException::what() const throw()
+const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
   return ("Grade too low");
 }
@@ -40,7 +40,7 @@ Bureaucrat::~Bureaucrat()
 { 
 }
 
-const &std::string Bureaucrat::getName() const
+const std::string Bureaucrat::getName() const
 {
   return (this->name);
 } 
@@ -50,3 +50,24 @@ int Bureaucrat::getGrade() const
   return (this->grade);
 }
 
+void Bureaucrat::incrementGrade()
+{
+  if (this->grade - 1 < 1)
+    throw Bureaucrat::GradeTooHighException();
+  else
+    this->grade--;
+}
+
+void Bureaucrat::decrementGrade()
+{
+  if (this->grade + 1 > 150)
+    throw Bureaucrat::GradeTooLowException();
+  else
+    this->grade++;
+}
+
+std::ostream& operator<<(std::ostream &out, const Bureaucrat &bureaucrat)
+{
+  out << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
+  return (out);
+}
