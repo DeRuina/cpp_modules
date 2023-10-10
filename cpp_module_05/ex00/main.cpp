@@ -1,5 +1,6 @@
 #include "Bureaucrat.hpp"
 
+
 int main(void)
 {
  // Constructor
