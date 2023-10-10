@@ -13,9 +13,9 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 Bureaucrat::Bureaucrat(std::string name, int grade) :name(name)
 {
   if (grade  < 1)
-    throw GradeTooHighException();
+    throw Bureaucrat::GradeTooHighException();
   if (grade > 150)
-    throw GradeTooLowException();
+    throw Bureaucrat::GradeTooLowException();
   this->grade = grade;
 }
 
@@ -27,9 +27,9 @@ Bureaucrat::Bureaucrat(const Bureaucrat &copy) : name(copy.name)
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &src)
 {
   if (src.grade < 1)
-    throw GradeTooHighException();
+    throw Bureaucrat::GradeTooHighException();
   if (src.grade > 150)
-    throw GradeTooLowException();
+    throw Bureaucrat::GradeTooLowException();
   this->grade = src.grade;
   return (*this);
 }
