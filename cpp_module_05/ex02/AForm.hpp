@@ -9,9 +9,9 @@ class AForm
 {
 	private:
 		const					std::string	name;
-		bool					isSigned;
 		const int			signGrade;
 		const int			executeGrade;
+		bool					isSigned;
 
   public:
 			AForm(std::string name, int signGrade, int executeGrade);
@@ -25,7 +25,7 @@ class AForm
 			int					getGradeToExecute() const;
 			void				beSigned(const Bureaucrat &bureaucrat);
 
-			virtual void        execute( const Bureaucrat& executor ) const = 0;
+			virtual void	execute(const Bureaucrat& executor) const = 0;
 
 
 	class GradeTooHighException : public std::exception
