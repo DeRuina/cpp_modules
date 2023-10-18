@@ -28,5 +28,6 @@ void RobotomyRequestForm::execute(const Bureaucrat& executor) const
 	if (i % 2 == 0)
 		std::cout << this->target << " has been robotomized." << std::endl;
 	else
-		std::cout << " robotomy failed " << this->target << " gives you the middle finger." << std::endl;
+		std::cout << "robotomy failed " << this->target << " gives you the middle finger." << std::endl;
+	i++;
 }

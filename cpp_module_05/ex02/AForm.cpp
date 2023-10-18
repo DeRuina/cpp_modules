@@ -13,10 +13,10 @@ AForm::AForm(const AForm &copy) : name(copy.name), signGrade(copy.signGrade), ex
 
 AForm &AForm::operator=(const AForm &src)
 {
-	if ( signGrade < 1 )
+	if (signGrade < 1)
 		throw AForm::GradeTooHighException();
-    if ( signGrade > 150 )
-        throw AForm::GradeTooLowException();
+  if (signGrade > 150)
+      throw AForm::GradeTooLowException();
 	this->isSigned = src.isSigned;
 	return (*this);
 }

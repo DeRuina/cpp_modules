@@ -24,7 +24,6 @@ int main(void)
 	Lukatsch.executeForm(shrubbery);
 	Lukatsch.executeForm(robotomy);
 	Lukatsch.executeForm(robotomy);
-	Lukatsch.executeForm(robotomy);
 	Lukatsch.executeForm(presidential);
 
 	return 0;
