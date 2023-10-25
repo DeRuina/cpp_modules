@@ -22,5 +22,10 @@ int main(void)
 	identify(reftype3);
 	identify(reftype4);
 
+	delete type1;
+	delete type2;
+	delete type3;
+	delete type4;
+
 	return (0);
 }
