@@ -20,8 +20,8 @@ class Span
 
 		void addNumber(int num);
 		void addNumber(std::vector<int>::iterator it1, std::vector<int>::iterator it2);
-		unsigned int shortestSpan();
 		unsigned int longestSpan();
+		unsigned int shortestSpan();
 
 
 
