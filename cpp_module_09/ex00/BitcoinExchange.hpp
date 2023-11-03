@@ -3,16 +3,18 @@
 
 #include <map>
 #include <string>
+#include <iostream>
+#include <fstream>
 
 class BitcoinExchange
 {
 	private:
 		std::map<std::string, double> data;
 
-		std::map<std::string, double> parce_exchange(std::string fileName);
+		std::map<std::string, double> parce_exchange();
 
 	public:
-		BitcoinExchange(std::string fileName);
+		BitcoinExchange();
 		BitcoinExchange(const BitcoinExchange &copy);
 		BitcoinExchange &operator=(const BitcoinExchange &src);
 		~BitcoinExchange();

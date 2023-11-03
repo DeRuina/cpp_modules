@@ -1,6 +1,7 @@
 #include "BitcoinExchange.hpp"
 
-int main(int argc, char **argv)
+int main(void)
 {
+	BitcoinExchange ex;
 	return (0);
 }
