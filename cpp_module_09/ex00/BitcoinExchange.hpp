@@ -12,7 +12,7 @@ class BitcoinExchange
 		std::map<std::string, double> data;
 
 		std::map<std::string, double> parce_exchange();
-		void check_value(std::string &line, std::string &date, double &value);
+		void check_value_and_date(std::string &line, std::string &date, double &value);
 
 
 	public:

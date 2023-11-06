@@ -39,19 +39,31 @@ std::map<std::string, double> BitcoinExchange::parce_exchange()
 		data.insert(std::pair<std::string, double>(std::strtok((char *)line.c_str(), ","), std::strtod(std::strtok(NULL, ","), &end)));
 	return (data);
 }
-void BitcoinExchange::check_value(std::string &line, std::string &date, double &value)
+void BitcoinExchange::check_value_and_date(std::string &line, std::string &date, double &value)
 {
 	char *end;
 	size_t found = line.find(" | ", 10);
 	if (found == std::string::npos)
 		throw 1;
 	date = std::strtok((char *)line.c_str(), " |");
+	if (date.length() < 9 || (date.at(4) != '-' && date.at(7) != '-') || date.at(5) == '-' || date.at(8) == '-')
+		throw 1;
 	value = std::strtod(std::strtok(NULL, " |"), &end);
 	if (value < 0)
 		throw 2;
 	if (value > 1000)
 		throw 3;
-
+	int day, month, year;
+	int months[] = {31,28,31,30,31,30,31,31,30,31,30,31};
+	year = std::atoi(strtok((char *)date.c_str(), "-"));
+	month = std::atoi(strtok(NULL, "-"));
+	day = std::atoi(strtok(NULL, "-"));
+	if (month > 12 || month < 1)
+		throw 1;
+	if (month == 2 && ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0))
+		months[1]++;
+	if (day > months[month - 1] || day < 1)
+		throw 1;
 }
 
 void BitcoinExchange::your_portfolio_values(std::string inputFile)
@@ -59,7 +71,7 @@ void BitcoinExchange::your_portfolio_values(std::string inputFile)
 	std::ifstream inFile;
 	try
 	{
-		inFile.open(inputFile, std::ifstream::in);
+		inFile.open(inputFile.c_str(), std::ifstream::in);
 	}
 	catch(std::exception& e)
 	{
@@ -73,7 +85,7 @@ void BitcoinExchange::your_portfolio_values(std::string inputFile)
 	{
 		try
 		{
-			check_value(line,date, value);
+			check_value_and_date(line,date, value);
 		}
 		catch(int e)
 		{
