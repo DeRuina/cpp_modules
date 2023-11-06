@@ -156,7 +156,6 @@ void BitcoinExchange::your_portfolio_values(std::string inputFile)
 				continue;
 			}
 		}
-		// std::cout << date << "=>" << value << std::endl;
 		print_date_or_closest_date(date, value, dateArray);
 	}
 }

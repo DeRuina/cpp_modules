@@ -26,7 +26,6 @@ class BitcoinExchange
 
 		void your_portfolio_values(std::string inputFile);
 
-
 };
 
 #endif
