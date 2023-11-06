@@ -12,7 +12,8 @@ class BitcoinExchange
 		std::map<std::string, double> data;
 
 		std::map<std::string, double> parce_exchange();
-		void check_value_and_date(std::string &line, std::string &date, double &value);
+		void check_value_and_date(std::string &line, std::string &date, double &value, int dateArr[3]);
+		void print_date_or_closest_date(std::string &date, double &value, int dateArr[3]);
 
 
 	public:
