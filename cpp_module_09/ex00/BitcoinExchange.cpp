@@ -46,19 +46,44 @@ void BitcoinExchange::print_date_or_closest_date(std::string &date, double &valu
 	year = dateArr[0];
 	month = dateArr[1];
 	day = dateArr[2];
-	std::cout << std::to_string(year)  <<  " " << std::to_string(month) << " " << std::to_string(day) << std::endl;
 	if (this->data.count(date))
+	{
 		std::cout << date << " => " << value << " = " << value * this->data[date] << std::endl;
-	// while (year > 2008)
-	// {
-	// 	while (month > 0)
-	// 	{
-	// 		while (day > 0)
-	// 		{
-	// 			std::string new_date = year +
-	// 		}
-	// 	}
-	// }
+		return;
+	}
+	while (year > 2008)
+	{
+		while (month > 0)
+		{
+			while (day > 0)
+			{
+				std::ostringstream convert;
+				if (month < 10)
+				{
+					if (day < 10)
+						convert << year << '-' << std::setw(2) << std::setfill('0') << month <<  '-' << std::setw(2) << std::setfill('0') <<  day;
+					else
+						convert << year << '-' << std::setw(2) << std::setfill('0') << month <<  '-' << day;
+				}
+				else if (day < 10)
+					convert << year << '-' << month <<  '-' << std::setw(2) << std::setfill('0') <<  day;
+				else
+					convert << year << '-' << month <<  '-' <<  day;
+				std::string new_date(convert.str());
+				if (this->data.count(new_date))
+				{
+					std::cout << date << " => " << value << " = " << value * this->data[new_date] << std::endl;
+					return;
+				}
+				day--;
+			}
+			day = 31;
+			month--;
+		}
+		month = 12;
+		year--;
+	}
+	std::cout << "Error: bad input" << "=>" << date << std::endl;
 }
 
 void BitcoinExchange::check_value_and_date(std::string &line, std::string &date, double &value, int dateArr[3])
