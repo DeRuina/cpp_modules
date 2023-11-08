@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 #include <exception>
+#include <algorithm>
 #include <stack>
 
 class RPN
@@ -15,7 +16,7 @@ class RPN
 		~RPN();
 
 	public:
-		void solve(std::string input);
+		static void solve(std::string input);
 
 };
 
