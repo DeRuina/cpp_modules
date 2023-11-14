@@ -1,12 +1,18 @@
 #include "PmergeMe.hpp"
 
-std::vector<unsigned long> PmergeMe::sort_vector(std::string sequence)
+std::vector<unsigned long> PmergeMe::vec_sort(std::string sequence)
 {
 
 }
 
-std::deque<unsigned long> PmergeMe::sort_deque(std::string sequence)
+std::deque<unsigned long> PmergeMe::deq_sort(std::string sequence)
 {
+
+}
+
+void PmergeMe::check_input(std::string sequence)
+{
+
 
 }
 
