@@ -16,10 +16,9 @@ class PmergeMe
 		~PmergeMe();
 		static std::vector<unsigned long> vec_sort(std::string sequence);
 		static std::deque<unsigned long> deq_sort(std::string sequence);
-		void check_input(std::string sequence);
 
 		template<typename T>
-		void merge_sort(T &sequence)
+		static void merge_sort(T &sequence)
 		{
 			if (sequence.size()  <= 1)
 				return ;
@@ -48,7 +47,7 @@ class PmergeMe
 				}
 				sequence_it++;
 			}
-			while (begin_it < gein.end())
+			while (begin_it < begin.end())
 			{
 				*sequence_it = *begin_it;
 				sequence_it++;
@@ -64,6 +63,7 @@ class PmergeMe
 
 	public:
 		static void sort_sequence(std::string sequence);
+		static std::string parse_and_check_input(char **input);
 };
 
 
