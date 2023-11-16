@@ -3,12 +3,16 @@
 std::vector<unsigned long> PmergeMe::vec_sort(std::string sequence)
 {
 	std::vector<unsigned long> vec;
-
-	for (std::string::iterator it = sequence.begin(); it != sequence.end(); ++it)
+	const char *str = sequence.c_str();
+	while(*str)
 	{
-		if (*it == ' ')
-			++it;
-		vec.push_back(*it - '0');
+		while (*str && (*str < '0' || *str > '9'))
+			str++;
+		if (!*str)
+			break;
+		vec.push_back(std::atoi(str));
+		while (*str && *str != ' ')
+			str++;
 	}
 	merge_sort(vec);
 	return (vec);
@@ -18,41 +22,53 @@ std::vector<unsigned long> PmergeMe::vec_sort(std::string sequence)
 std::deque<unsigned long> PmergeMe::deq_sort(std::string sequence)
 {
 	std::deque<unsigned long> deq;
-
-	for (std::string::iterator it = sequence.begin(); it != sequence.end(); ++it)
+	const char *str = sequence.c_str();
+	while(*str)
 	{
-		if (*it == ' ')
-			++it;
-		deq.push_back(*it - '0');
+		while (*str && (*str < '0' || *str > '9'))
+			str++;
+		if (!*str)
+			break;
+		deq.push_back(std::atoi(str));
+		while (*str && *str != ' ')
+			str++;
 	}
 	merge_sort(deq);
 	return (deq);
 
 }
 
-std::string PmergeMe::parse_and_check_input(char **input)
-{
+// std::string PmergeMe::parse_and_check_input(char **input)
+// {
 
 
-}
+// }
 
 void PmergeMe::sort_sequence(std::string sequence)
 {
 	clock_t time_begin = std::clock();
 	std::vector<unsigned long> vec(PmergeMe::vec_sort(sequence));
-	clock_t vec_time = std::clock() - time_begin;
+	clock_t vec_time = (std::clock() - time_begin);
 	time_begin = std::clock();
 	std::deque<unsigned long> deq(PmergeMe::deq_sort(sequence));
 	clock_t deque_time = std::clock() - time_begin;
 
-	std::cout << "Before: " << sequence << std::endl;
-	std::cout << "After: ";
+	std::cout << "Before: ";
+	for (std::string::iterator it = sequence.begin(); it != sequence.end(); ++it)
+	{
+		while (*it == ' ')
+			++it;
+		while (*it != ' ')
+			std::cout << *it++;
+		std::cout << " ";
+	}
+	std::cout << "\nAfter: ";
 	for (std::vector<unsigned long>::iterator it = vec.begin(); it != vec.end(); ++it)
 	{
 		if (*it == *vec.rbegin())
-			std::cout << std::endl;
+			std::cout << *it << std::endl;
 		std::cout << *it << " ";
 	}
-	std::cout << "Time to process a range of " << vec.size() << " elements with std::vector : " << float(vec_time) << " microseconds" << std::endl;
-	std::cout << "Time to process a range of " << deq.size() << " elements with std::deque : " << float(deque_time) << " microseconds" << std::endl;
+	std::cout << "Time to process a range of " << vec.size() << " elements with std::vector : " << std::fixed << std::setprecision(3) << 1000 * (vec_time / (double)CLOCKS_PER_SEC) << " ms" << std::endl;
+	std::cout << "Time to process a range of " << deq.size() << " elements with std::deque : " << std::fixed << std::setprecision(3) << 1000 * (deque_time / (double)CLOCKS_PER_SEC) << " ms" << std::endl;
 }
