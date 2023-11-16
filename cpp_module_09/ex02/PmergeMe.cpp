@@ -38,11 +38,28 @@ std::deque<unsigned long> PmergeMe::deq_sort(std::string sequence)
 
 }
 
-// std::string PmergeMe::parse_and_check_input(char **input)
-// {
-
-
-// }
+std::string PmergeMe::parse_and_check_input(char **input)
+{
+	std::string str;
+	input++;
+	while (*input)
+	{
+		str += *input++;
+		str += " ";
+	}
+	for (std::string::iterator it = str.begin(); it != str.end(); ++it)
+	{
+		while (*it != ' ')
+		{
+			if (*it == '+' && (*(it + 1) > '0' && *(it + 1) < '9'))
+				break;
+			if (*it == '-' || *it < '0' || *it > '9')
+				throw std::exception();
+			++it;
+		}
+	}
+	return (str);
+}
 
 void PmergeMe::sort_sequence(std::string sequence)
 {
@@ -58,6 +75,8 @@ void PmergeMe::sort_sequence(std::string sequence)
 	{
 		while (*it == ' ')
 			++it;
+		if (!*it)
+			break;
 		while (*it != ' ')
 			std::cout << *it++;
 		std::cout << " ";
@@ -66,7 +85,10 @@ void PmergeMe::sort_sequence(std::string sequence)
 	for (std::vector<unsigned long>::iterator it = vec.begin(); it != vec.end(); ++it)
 	{
 		if (*it == *vec.rbegin())
+		{
 			std::cout << *it << std::endl;
+			break;
+		}
 		std::cout << *it << " ";
 	}
 	std::cout << "Time to process a range of " << vec.size() << " elements with std::vector : " << std::fixed << std::setprecision(3) << 1000 * (vec_time / (double)CLOCKS_PER_SEC) << " ms" << std::endl;
