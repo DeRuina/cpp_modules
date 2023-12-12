@@ -54,6 +54,6 @@ The purpose of this module is to introduce us to templated containers, iterators
 This module contains multiple exercises: `ex00`, `ex01`, and `ex02`.
 The purpose of this module is to introduce us to STL.
 
-## Authors
+## Author
 
 - [@DeRuina](https://github.com/DeRuina)
