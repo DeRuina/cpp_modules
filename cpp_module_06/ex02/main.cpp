@@ -2,6 +2,8 @@
 
 int main(void)
 {
+	std::srand(std::time(NULL));
+
 	Base *type1 = generate();
 	Base *type2 = generate();
 	Base *type3 = generate();

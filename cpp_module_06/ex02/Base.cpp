@@ -5,13 +5,13 @@ Base::~Base()
 
 Base *generate(void)
 {
-	static int i;
-	if (i % 3 == 0)
-		return (i++, new A());
-	else if (i % 3 == 1)
-		return (i++, new B());
-	else if (i % 3 == 2)
-		return (i++, new C());
+	int i = std::rand() % 3;
+	if (i == 0)
+		return (new A());
+	else if (i  == 1)
+		return (new B());
+	else if (i == 2)
+		return (new C());
 	return (NULL);
 }
 void identify(Base* p)

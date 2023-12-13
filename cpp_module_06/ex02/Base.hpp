@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <exception>
+#include <ctime>
 
 class Base
 {

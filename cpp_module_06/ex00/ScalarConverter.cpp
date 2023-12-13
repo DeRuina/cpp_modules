@@ -35,7 +35,16 @@ void ScalarConverter::convert(std::string str)
   {
     try
     {
-      f = std::stof(str);
+		if (*(str.rbegin()) == 'f')
+		{
+			str.pop_back();
+			if (*(str.rbegin()) == 'f')
+				throw std::exception();
+		}
+		else
+			throw std::exception();
+		std::stringstream ss(str);
+		ss >> f;
     }
     catch (std::exception &e)
     {
@@ -50,7 +59,8 @@ void ScalarConverter::convert(std::string str)
   {
     try
     {
-      d = std::stod(str);
+       std::stringstream ss(str);
+		ss >> d;
     }
     catch (std::exception &e)
     {
@@ -61,9 +71,9 @@ void ScalarConverter::convert(std::string str)
     c = static_cast<char>(d);
     i = static_cast<int>(d);
   }
-  else if (str.length() == 1)
+  else if (str.length() == 1 && !std::isdigit(str.at(0)))
   {
-    c = str[0];
+    c = str.at(0);
     f = static_cast<float>(c);
     d = static_cast<double>(c);
     i = static_cast<int>(c);
@@ -72,7 +82,11 @@ void ScalarConverter::convert(std::string str)
   {
      try
     {
-      i = std::stoi(str);
+		if (!std::isdigit(str.at(0)) || std::atol(str.c_str()) > 2147483648)
+			throw std::exception();
+      std::stringstream ss(str);
+		ss >> i;
+
     }
     catch (std::exception &e)
     {
@@ -81,7 +95,7 @@ void ScalarConverter::convert(std::string str)
     }
     f = static_cast<float>(i);
     c = static_cast<char>(i);
-    d = static_cast<double>(d);
+    d = static_cast<double>(i);
   }
 
   if (print_c == false)
