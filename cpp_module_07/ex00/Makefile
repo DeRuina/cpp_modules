@@ -1,6 +1,6 @@
-NAME = Conversion_of_scalar_types
+NAME = Start_with_a_few_functions
 
-SRC = main.cpp 
+SRC = main.cpp
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
