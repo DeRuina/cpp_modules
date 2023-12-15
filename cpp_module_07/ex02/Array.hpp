@@ -17,6 +17,7 @@ class Array
 		~Array();
 
 		T &operator[](int index);
+		const T &operator[](int index) const;
 		int size();
 };
 

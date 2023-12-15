@@ -28,6 +28,15 @@ Array<T>::~Array()
 {
   delete [] this->arr;
 }
+
+template <typename T>
+const T &Array<T>::operator[](int index) const
+{
+  if (index < 0 || index >= this->arrSize)
+    throw std::exception();
+  return (this->arr[index]);
+}
+
 template <typename T>
 T &Array<T>::operator[](int index)
 {

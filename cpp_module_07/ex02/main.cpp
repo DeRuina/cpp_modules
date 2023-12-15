@@ -74,11 +74,16 @@ int main(int, char**)
 
     // Reading/writing test
 
-
     std::cout << "numbers[0]: " << numbers[0] << std::endl;
     numbers[0] = 42;
     std::cout << "numbers[0]: " << numbers[0] << std::endl;
 
     delete [] mirror;//
+
+	// const test
+
+	const Array<int> const_check(numbers);
+	std::cout << const_check[1] << std::endl;
+
     return 0;
 }
