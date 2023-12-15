@@ -2,7 +2,7 @@
 
 int main()
 {
-
+	std::srand(std::time(NULL));
 
 	Span sp = Span(5);
 	sp.addNumber(6);
