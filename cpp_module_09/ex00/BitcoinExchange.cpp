@@ -106,7 +106,7 @@ void BitcoinExchange::check_value_and_date(std::string &line, std::string &date,
 	year = std::atoi(strtok((char *)datecopy.c_str(), "-"));
 	month = std::atoi(strtok(NULL, "-"));
 	day = std::atoi(strtok(NULL, "-"));
-	if (month > 12 || month < 1)
+	if (year > 2023 || month > 12 || month < 1)
 		throw 1;
 	if (month == 2 && ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0))
 		months[1]++;
