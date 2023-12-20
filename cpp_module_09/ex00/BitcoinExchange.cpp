@@ -2,7 +2,17 @@
 
 BitcoinExchange::BitcoinExchange()
 {
-	this->data = parce_exchange();
+	this->is_good = false;
+	try
+	{
+		this->data = parce_exchange();
+		this->is_good = true;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Error: could not open data file." << std::endl;
+	}
+
 }
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &copy)
 {
@@ -23,17 +33,12 @@ BitcoinExchange::~BitcoinExchange()
 std::map<std::string, double> BitcoinExchange::parce_exchange()
 {
 	std::ifstream inFile;
-	try
-	{
-		inFile.open("data.csv", std::ifstream::in);
-	}
-	catch(std::exception& e)
-	{
-		std::cerr << "Error: could not open file." << std::endl;
-	}
+	std::map<std::string, double> data;
+	inFile.open("data.csv", std::ifstream::in);
+	if (!inFile.is_open())
+		throw std::exception();
 	std::string line;
 	std::getline(inFile, line);
-	std::map<std::string, double> data;
 	char *end;
 	while (std::getline(inFile, line))
 		data.insert(std::pair<std::string, double>(std::strtok((char *)line.c_str(), ","), std::strtod(std::strtok(NULL, ","), &end)));
@@ -120,13 +125,11 @@ void BitcoinExchange::check_value_and_date(std::string &line, std::string &date,
 void BitcoinExchange::your_portfolio_values(std::string inputFile)
 {
 	std::ifstream inFile;
-	try
+	inFile.open(inputFile.c_str(), std::ifstream::in);
+	if (!inFile.is_open())
 	{
-		inFile.open(inputFile.c_str(), std::ifstream::in);
-	}
-	catch(std::exception& e)
-	{
-		std::cerr << "Error: Failed to read data.csv exchange file" << std::endl;
+		throw std::exception();
+		return ;
 	}
 	std::string line, date;
 	std::getline(inFile, line);
@@ -158,4 +161,9 @@ void BitcoinExchange::your_portfolio_values(std::string inputFile)
 		}
 		print_date_or_closest_date(date, value, dateArray);
 	}
+}
+
+bool BitcoinExchange::get_is_good()
+{
+	return this->is_good;
 }
